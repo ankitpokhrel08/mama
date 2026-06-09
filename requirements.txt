@@ -1,0 +1,16 @@
+fastapi
+uvicorn[standard]
+sqlalchemy
+psycopg2-binary
+python-dotenv
+pyyaml
+opencv-python
+ultralytics        # YOLOv8
+supervision        # ViewTransformer + speed estimation utils
+trackers           # ByteTrackTracker (replaces deprecated sv.ByteTrack)
+paddlepaddle
+paddleocr
+numpy
+python-multipart
+aiofiles
+jsonargparse

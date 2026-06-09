@@ -1,0 +1,22 @@
+camera:
+  id: "CAM_001"
+  location: "Koteshwor Intersection, Kathmandu"
+  video_source: "test.mp4"  # swap to rtsp://... for live feed
+  fps: 30
+  process_every_nth_frame: 3
+
+speed:
+  limit_kmh: 40
+  # 4 pixel coordinates on frame (click during calibration)
+  source_points: [[1252, 787], [2298, 803], [5039, 2159], [-550, 2159]]
+  # real-world dimensions of that region in meters (measure on road)
+  target_width_m: 10.0
+  target_length_m: 25.0
+
+evidence:
+  clips_dir: "evidence/clips"
+  plates_dir: "evidence/plates"
+  clip_duration_sec: 5
+
+database:
+  url: "${DATABASE_URL}"
