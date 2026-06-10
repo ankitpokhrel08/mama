@@ -13,7 +13,18 @@ output = sys.argv[2] if len(sys.argv) > 2 else "data/output_processed.mp4"
 processor = SpeedProcessor()
 video_info = sv.VideoInfo.from_video_path(source)
 
-with sv.VideoSink(output, video_info) as sink:
+# compute actual output resolution (may differ from source if process_width is set)
+orig_w, orig_h = video_info.resolution_wh
+process_width = config["camera"].get("process_width", orig_w)
+if process_width and process_width < orig_w:
+    scale = process_width / orig_w
+    out_w, out_h = process_width, int(orig_h * scale)
+else:
+    out_w, out_h = orig_w, orig_h
+
+out_info = sv.VideoInfo(width=out_w, height=out_h, fps=video_info.fps, total_frames=video_info.total_frames)
+
+with sv.VideoSink(output, out_info) as sink:
     for frame in processor.process(source, db_session=None):
         sink.write_frame(frame)
         cv2.imshow("Speed Cam", frame)

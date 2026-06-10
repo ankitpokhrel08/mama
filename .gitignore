@@ -1,0 +1,12 @@
+myenv/
+data/
+evidence/
+models/
+__pycache__/
+*.pyc
+*.pyo
+*.pt
+*.onnx
+.env
+.DS_Store
+context.md

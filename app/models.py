@@ -17,9 +17,10 @@ class Violation(Base):
     speed_limit_kmh: Mapped[int] = mapped_column(Integer)
     camera_id: Mapped[str] = mapped_column(String)
     location: Mapped[str] = mapped_column(String)
+    vehicle_image_path: Mapped[str | None] = mapped_column(String, nullable=True)
     plate_image_path: Mapped[str | None] = mapped_column(String, nullable=True)
     clip_path: Mapped[str | None] = mapped_column(String, nullable=True)
-    screenshot_path: Mapped[str | None] = mapped_column(String, nullable=True)
+    vehicle_color: Mapped[str | None] = mapped_column(String, nullable=True)
     status: Mapped[str] = mapped_column(String, default="pending")  # pending/approved/rejected
     reviewed_by: Mapped[str | None] = mapped_column(String, nullable=True)
     reviewed_at: Mapped[datetime | None] = mapped_column(DateTime(timezone=True), nullable=True)

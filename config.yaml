@@ -4,9 +4,10 @@ camera:
   video_source: "test.mp4"  # swap to rtsp://... for live feed
   fps: 30
   process_every_nth_frame: 3
+  process_width: 1280  # resize frames to this width before processing; source_points scale automatically
 
 speed:
-  limit_kmh: 40
+  limit_kmh: 30
   # 4 pixel coordinates on frame (click during calibration)
   source_points: [[1252, 787], [2298, 803], [5039, 2159], [-550, 2159]]
   # real-world dimensions of that region in meters (measure on road)
